@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="consultarPessoasControllerApp">
+<head>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" src="../javascript/angular.min.js"></script>
+    <script type="text/javascript" src="../javascript/consultarPessoasController.js"></script>
+    <title>Consulta</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Projeto</a>
+    <ul class="nav navbar-nav">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/pessoas/cadastrar.html">Cadastro</a></li>
+        <li><a href="/pessoas/consultarPessoas.html">Consultar</a></li>
+    </ul>
+</div>
+<div class = "paginao">
+    <div>
+        <h1>Consulta</h1>
+        <table ng-controller = "consultarPessoasController" data-ng-init = "init()" class = "table-bordered">
+            <tr>
+                <th>ID#</th>
+                <th>NOME</th>
+                <th>LOGIN</th>
+                <th>SENHA</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr ng-repeat = "pessoa in pessoas">
+                <td>{{ pessoa.id }}</td>
+                <td>{{ pessoa.name }}</td>
+                <td>{{ pessoa.login }}</td>
+                <td>{{ pessoa.senha }}</td>
+                <td><input type = "button" value = "Excluir" ng-click = "excluirPessoas(pessoa.id)"/></td>
+                <td><input type = "button" value = "Editar"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

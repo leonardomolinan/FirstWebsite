@@ -24,13 +24,13 @@ public class PessoasController {
     @RequestMapping(value = "/cadastrar.html", method = RequestMethod.GET)
     public ModelAndView cadastrar(){
 
-        return new ModelAndView("cadastrar");
+        return new ModelAndView("cadastrar2");
     }
 
     @RequestMapping(value = "/consultarPessoas.html", method = RequestMethod.GET)
     public ModelAndView consultarPessoas(){
 
-        return new ModelAndView("consultarPessoas");
+        return new ModelAndView("consultarPessoas2");
     }
 
     @RequestMapping(value = "/editarPessoas.html/{id}", method = RequestMethod.GET)
@@ -48,8 +48,6 @@ public class PessoasController {
 
     @RequestMapping(value = "/salvarPessoas", method = RequestMethod.POST)
     public @ResponseBody ResultadoModel salvarPessoas(@RequestBody PessoasModel pessoasModel){
-
-        System.out.println("----"+pessoasModel.toString());
 
         try{
             pessoasRepository.salvar(pessoasModel);

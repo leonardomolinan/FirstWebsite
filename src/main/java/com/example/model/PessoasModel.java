@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,13 +13,16 @@ public class PessoasModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "nomePessoas", nullable = false)
+    @NotEmpty
+    @Column(name = "nomePessoas")
     private String name;
 
-    @Column(name = "nomeLogin", nullable = false)
+    @NotEmpty
+    @Column(name = "nomeLogin")
     private String login;
 
-    @Column(name = "nomeSenha", nullable = false)
+    @NotEmpty
+    @Column(name = "nomeSenha")
     private String senha;
 
     public int getId() {

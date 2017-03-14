@@ -21,6 +21,11 @@ cadastrarControllerApp.controller("cadastrarController", function($scope,
 
             if(data.codigo == 1){
                 $window.alert(data.mensagem);
+
+                $scope.name = null;
+                $scope.login = null;
+                $scope.senha = null;
+
             }else{
                 $window.alert(data.mensagem);
             }
