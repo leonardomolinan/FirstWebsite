@@ -1,0 +1,30 @@
+<html lang = "en" ng-app = "cadastrarControllerApp">
+    <head>
+        <link rel = "stylesheet" href="../css/bootstrap.min.css"/>
+        <meta charset="UTF-8"/>
+        <title>CadastrarPessoas</title>
+        <script type = "text/javascript" src = "../javascript/angular.min.js"></script>
+        <script type = "text/javascript" src = "../javascript/cadastrarController.js"></script>
+    </head>
+    <body>
+        <form ng-controller = "cadastrarController">
+            <label>Nome: </label>
+            <input type = "text" ng-model = "name"/>
+
+            <br/><br/>
+
+            <label>Login: </label>
+            <input type = "text" ng-model = "login"/>
+
+            <br/><br/>
+
+            <label>Password: </label>
+            <input type = "password" ng-model = "senha"/>
+
+            <br/><br/>
+
+            <input type = "button" value = "Salvar" ng-click = "salvarPessoas()"/>
+
+        </form>
+    </body>
+</html>
