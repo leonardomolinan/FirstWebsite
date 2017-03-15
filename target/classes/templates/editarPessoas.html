@@ -1,0 +1,38 @@
+<html lang = "en" ng-app = "editarPessoasControllerApp">
+<head>
+    <meta charset="UTF-8"/>
+    <title>EditarPessoas</title>
+    <script type = "text/javascript" src = "../../javascript/angular.min.js"></script>
+    <script type = "text/javascript" src = "../../javascript/editarPessoasControler.js"></script>
+</head>
+<body>
+<form ng-controller = "editarPessoasController">
+    <label>ID: </label>
+    <input type = "text" disabled = "true"  ng-model = "id" ng-init = "id = '${pessoasModel.id}' "/>
+
+    <br/><br/>
+
+    <label>Nome: </label>
+    <input type = "text" ng-model = "name" ng-init = "name = '${pessoasModel.name}'"/>
+
+    <br/><br/>
+
+    <label>Login: </label>
+    <input type = "text" ng-model = "login" ng-init = "login = '${pessoasModel.login}'"/>
+
+    <br/><br/>
+
+    <label>Password: </label>
+    <input type = "password" ng-model = "password" ng-init = "password = '${pessoasModel.password}'"/>
+
+    <br/><br/>
+
+    <input type = "button" value = "Editar" ng-click = "editarPessoas()"/>
+
+    <br/><br/>
+
+    <a href = "../consultarPessoas.html">Voltar</a>
+
+</form>
+</body>
+</html>

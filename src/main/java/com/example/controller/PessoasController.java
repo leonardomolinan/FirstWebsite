@@ -36,7 +36,7 @@ public class PessoasController {
     @RequestMapping(value = "/editarPessoas.html/{id}", method = RequestMethod.GET)
     public ModelAndView editarPessoas(@PathVariable int id){
 
-        return new ModelAndView("editarPessoa", "pessoasModel",
+        return new ModelAndView("editarPessoas2", "pessoasModel",
                 pessoasRepository.consultarPorId(id));
     }
 

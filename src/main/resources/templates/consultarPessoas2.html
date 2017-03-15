@@ -22,7 +22,7 @@
         <h1>Consulta</h1>
         <table ng-controller = "consultarPessoasController" data-ng-init = "init()" class = "table-bordered">
             <tr>
-                <th>ID#</th>
+                <th>ID</th>
                 <th>NOME</th>
                 <th>LOGIN</th>
                 <th>SENHA</th>
@@ -35,7 +35,7 @@
                 <td>{{ pessoa.login }}</td>
                 <td>{{ pessoa.senha }}</td>
                 <td><input type = "button" value = "Excluir" ng-click = "excluirPessoas(pessoa.id)"/></td>
-                <td><input type = "button" value = "Editar"/></td>
+                <td><input type = "button" value = "Editar" ng-click = "editarPessoas(pessoa.id)"/></td>
             </tr>
         </table>
     </div>
