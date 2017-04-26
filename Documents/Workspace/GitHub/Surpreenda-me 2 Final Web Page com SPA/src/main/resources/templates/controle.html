@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv = "X-UA-Compatible" content = "IE-edge"/>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1"/>
+
+    <title>Controle</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src = "https://code.angularjs.org/1.6.4/angular.min.js"></script>
+    <script src = "https://code.angularjs.org/1.6.4/angular-route.min.js"></script>
+    <script src= "../javascript/app.js"></script>
+    <script src = "../javascript/controller/controleController.js"></script>
+    <script src = "../javascript/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.6.4/angular-animate.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
+
+
+</head>
+<body ng-app="myApp" ng-controller="controleController">
+<!--PARTE DA TELA DE EDIÇÃO -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Atualizar Dados</h4>
+            </div>
+            <div class="modal-body">
+                <label>ID</label>
+                <p><input type="text" class="form-control" disabled="true" ng-model="id"/></p>
+                <label>Name</label>
+                <p><input type="text" class="form-control" ng-model="nome"/></p>
+                <label>Sobrenome</label>
+                <p><input type="text" class="form-control" ng-model="sobrenome"/></p>
+                <label>Email</label>
+                <p><input type="text" class="form-control" ng-model="email"/></p>
+                <label>Password</label>
+                <p><input type="password" class="form-control" placeholder="Password" ng-model="password"/></p>
+            </div>
+            <div class="modal-footer">
+                <toaster-container toaster-options="{'close-button':true, 'time-out':{ 'toast-warning': 2000, 'toast-error': 0 } }"></toaster-container>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                <button type="button" class="btn btn-primary" ng-click="save()" data-dismiss="modal">Salvar</button>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--PARTE DA NAVBAR -->
+<nav class="navbar navbar-inverse bg-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="controle.html">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="https://www.facebook.com/leo.sergi.molina">Contato<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" ng-model="caixaPesq" class="form-control" placeholder="Procurando pelo que?"/>
+                </div>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <table class="table table-hover" data-ng-init="init()">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tr ng-repeat="user in users | filter:caixaPesq">
+            <td>{{user.id}}</td>
+            <td>{{user.nome}}</td>
+            <td>{{user.sobrenome}}</td>
+            <td>{{user.email}}</td>
+            <td><a class="btn btn-danger btn-sm" ng-click="excluir(user)" href="controle.html">Excluir</a></td>
+            <td><a class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ng-click="preenche(user)">Editar</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
