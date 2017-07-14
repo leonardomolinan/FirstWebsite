@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="cadastrarControllerApp">
+<head>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" src="../javascript/angular.min.js"></script>
+    <script type="text/javascript" src="../javascript/cadastrarController.js"></script>
+    <title>Cadastro</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-left">
+    <a class="navbar-brand" href="#">Projeto</a>
+    <ul class="nav navbar-nav">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/pessoas/cadastrar.html">Cadastro</a></li>
+        <li><a href="/pessoas/consultarPessoas.html">Consultar</a></li>
+    </ul>
+</div>
+<div class = "paginao">
+    <div>
+        <h1>Cadastro</h1>
+        <form ng-controller="cadastrarController">
+            <p>Nome: <input type="text" ng-model="name"/></p>
+            <p>Login: <input type="text" ng-model="login"/></p>
+            <p>Senha: <input type="password" ng-model="senha"/></p>
+            <p><input type="submit" value="Enviar" ng-click="salvarPessoas()"/><input type="reset" value="Reset"/></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

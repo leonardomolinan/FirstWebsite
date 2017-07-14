@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en" ng-app = "consultarPessoasControllerApp">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Consultar Pessoas</title>
+    <script type = "text/javascript" src = "../javascript/angular.min.js"></script>
+    <script type = "text/javascript" src = "../javascript/consultarPessoasController.js"></script>
+</head>
+<body>
+    <table ng-controller = "consultarPessoasController" data-ng-init = "init()" style = "border:2px solid #000" >
+        <tr style = "border:2px solid #000">
+            <th style = "border:2px solid #000">ID</th>
+            <th style = "border:2px solid #000">NOME</th>
+            <th style = "border:2px solid #000">LOGIN</th>
+            <th style = "border:2px solid #000">SENHA</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat = "pessoa in pessoas" style = "border:2px solid #000">
+            <td style = "border:2px solid #000">{{ pessoa.id }}</td>
+            <td style = "border:2px solid #000">{{ pessoa.name }}</td>
+            <td style = "border:2px solid #000">{{ pessoa.login }}</td>
+            <td style = "border:2px solid #000">{{ pessoa.senha }}</td>
+            <td><input type = "button" value = "Excluir" ng-click = "excluirPessoas(pessoa.id)"/></td>
+            <td><input type = "button" value = "Editar" ng-click = "editarPessoas(pessoa.id)"/></td>
+        </tr>
+    </table>
+</body>
+</html>
