@@ -1,0 +1,34 @@
+<div class="text-center">
+  <h2>Cadastro realizado com sucesso!</h2>
+  <h3>Confira suas informações a seguir:</h3>
+
+  <label>Qual o seu comportamento em relação aos seus investimentos?</label>
+  <p *ngIf="respostas.gridRadios1">R - {{respostas.gridRadios1}}</p>
+  <p *ngIf="!respostas.gridRadios1" class="semResposta">--Sem resposta--</p>
+
+  <label>Por quanto tempo você deseja manter os seus investimentos?</label>
+  <p *ngIf="respostas.gridRadios2">R: {{respostas.gridRadios2}}</p>
+  <p *ngIf="!respostas.gridRadios2" class="semResposta">--Sem resposta--</p>
+
+  <label>Quantos % desses investimentos você pode precisar em um ano?</label>
+  <p *ngIf="respostas.gridRadios3">R: {{respostas.gridRadios3}}</p>
+  <p *ngIf="!respostas.gridRadios3"class="semResposta">--Sem resposta--</p>
+
+  <label>Qual sua familiaridade com Titulos de renda fixa ou tesouro direto?</label>
+  <p *ngIf="respostas.TituloDeRendaETesouro">R: {{respostas.TituloDeRendaETesouro}}</p>
+  <p *ngIf="!respostas.TituloDeRendaETesouro" class="semResposta">--Sem resposta--</p>
+
+  <label>Qual sua familiaridade com fundos de investimento?</label>
+  <p *ngIf="respostas.FundosDeInvestimento">R: {{respostas.FundosDeInvestimento}}</p>
+  <p *ngIf="!respostas.FundosDeInvestimento" class="semResposta">--Sem resposta--</p>
+
+  <label>Qual sua familiaridade com ações a vista?</label>
+  <p *ngIf="respostas.AcoesAVista" >R: {{respostas.AcoesAVista}}</p>
+  <p *ngIf="!respostas.AcoesAVista"class="semResposta">--Sem resposta--</p>
+
+  <label>Qual sua familiaridade com aluguel de ações, termos, opções e futuros?</label>
+  <p *ngIf="respostas.AluguelOpcoesFuturos" >R: {{respostas.AluguelOpcoesFuturos}}</p>
+  <p *ngIf="!respostas.AluguelOpcoesFuturos" class="semResposta">--Sem resposta--</p>
+  
+  
+</div>

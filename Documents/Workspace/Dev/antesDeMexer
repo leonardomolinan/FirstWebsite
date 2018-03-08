@@ -1,0 +1,183 @@
+HTML QUESTIONARIO
+
+<div class="alert alert-info" style="text-align:center">
+    <strong>{{ titulo }}</strong>
+</div>
+<div class="col-sm-5 form-group">
+        <label for="TituloDeRendaETesouro">TÍTULOS DE RENDA FIXA OU TESOURO DIRETO</label>
+        <select ngModel name="TituloDeRendaETesouro" id="TituloDeRendaETesouro" class="form-control">
+          <option value="">Selecione uma opção</option>
+          <option [value]="opcao.opcao" *ngFor="let opcao of DropDownQuestions">{{opcao.opcao}}</option>
+        </select>
+</div>
+<!--div class="row">
+    <font size="6">{{ pergunta1[0] }}</font>
+        <mat-radio-group [(ngModel)]="this.resposta1">
+            <mat-radio-button value="{{ pergunta[1] }}">{{ pergunta[1] }}</mat-radio-button>
+            <mat-radio-button value="{{ pergunta[2] }}">{{ pergunta[2] }}</mat-radio-button>
+            <mat-radio-button value="{{ pergunta[3] }}">{{ pergunta[3] }}</mat-radio-button>
+        </mat-radio-group>
+</div-->
+<div>
+    <button type="submit" class="btn btn-lg btn-primary" routerLink="/final">Submit</button>
+</div>
+
+QUESTIONARIO COMPONENT
+
+import { Component, OnInit } from '@angular/core';
+
+import { QuestionarioService } from './questionario.service';
+
+@Component({
+  selector: 'app-questionario',
+  templateUrl: './questionario.component.html',
+  styleUrls: ['./questionario.component.css']
+})
+export class QuestionarioComponent implements OnInit {
+
+  constructor(_questionarioService: QuestionarioService) {
+    this.questionarioService = _questionarioService;
+  }
+
+  opSel:any;
+
+  pergunta1: string[];
+  pergunta2: string[];
+  pergunta3: string[];
+  titulo: string;
+  resposta1: any;
+  resposta2: any;
+  resposta3: any;
+  questionarioService: QuestionarioService;
+
+  ngOnInit() {
+    this.pergunta1 = this.questionarioService.getPergunta1();
+    this.pergunta2 = this.questionarioService.getPergunta2();
+    this.pergunta3 = this.questionarioService.getPergunta3();
+    this.titulo = this.questionarioService.getTitle();
+  }
+  
+  onSubmit(form){
+  }
+
+  OnCheckboxSelect(resposta){
+      this.resposta1 = resposta;
+  }
+}
+
+
+QUESTIONARIO SERVICE
+
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class QuestionarioService {
+
+  getPergunta1(){
+    return ['1 - Qual o seu comportamento em relação aos seus investimentos?',
+    'PRESERVAR MEU DINHEIRO SEM CORRER RISCOS',
+    'GANHAR MAIS DINHEIRO ASSUMINDO RISCOS MODERADOS',
+    'GANHAR MAIS DINHEIRO ASSUMINDO RISCOS AGRESSIVOS',]
+  }
+
+  getPergunta2(){
+    return ['2 - Por quanto tempo você deseja manter os seus investimentos?',
+    'ATÉ 1 ANO', 'DE 1 A 3 ANOS', 'DE 3 A 5 ANOS']
+  }
+
+  getPergunta3(){
+    return ['3 - Quantos % desses investimentos você pode precisar em um ano?',
+    'ACIMA DE 75%', 'DE 26 A 76%', 'ATÉ 25%']
+  }
+
+  getTitle(){
+    return 'PERFIL DO INVESTIDOR - QUESTIONÁRIO';
+  }
+
+  constructor() { }
+
+}
+
+
+APP MODULE
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { MatDialogRef, MatDialog, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material';
+import { CommonModule } from "@angular/common";
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { Browser } from 'protractor';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatRadioModule } from '@angular/material/radio';
+
+import { AppComponent } from './app.component';
+import { ModalComponent } from './modal/modal.component';
+import { QuestionarioComponent } from './questionario/questionario.component';
+import { FinalComponent } from './final/final.component';
+import { routing } from './app.routing';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuestionarioService } from './questionario/questionario.service';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ModalComponent,
+    QuestionarioComponent,
+    FinalComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    BootstrapModalModule,
+    FormsModule,
+    NgbModule.forRoot(),
+    routing,
+    MatDialogModule,
+    BrowserAnimationsModule
+  ],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {hasBackdrop:false}},
+    QuestionarioService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents:[ModalComponent],
+  exports: [AppComponent]
+})
+export class AppModule { }
+
+
+
+FINAL COMPONENT 
+
+import { Component, OnInit } from '@angular/core';
+import { QuestionarioComponent } from '../questionario/questionario.component';
+
+@Component({
+  selector: 'app-final',
+  templateUrl: './final.component.html',
+  styleUrls: ['./final.component.css']
+})
+export class FinalComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+
+FINAL HTML 
+
+<div class="alert alert-success" style="text-align:center">
+  <strong>Parabéns!</strong> Seu cadastro foi realizado com sucesso.
+</div>
+<div>
+  
+</div>
+
+
+

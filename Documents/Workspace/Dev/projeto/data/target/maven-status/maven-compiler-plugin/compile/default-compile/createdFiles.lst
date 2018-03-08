@@ -1,0 +1,4 @@
+com/estagio/repository/UserRepository.class
+com/estagio/repository/LoginRepository.class
+com/estagio/model/Login.class
+com/estagio/model/User.class

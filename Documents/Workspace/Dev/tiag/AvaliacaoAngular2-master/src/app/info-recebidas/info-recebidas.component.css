@@ -1,0 +1,25 @@
+h2{
+    color: #c6ba94;
+    font-size: 15px;
+    
+}
+.redButton{
+    color : ;
+    background-color:white; /* Green */
+    border: 1px solid #8e5f6f;
+    border-radius: 4px;
+    padding: 13px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;    
+}
+.redButton:hover{
+    background-color: #8e5f6f;
+    color:white;
+}
+@media only screen and (min-width: 768px){
+    .message{
+        padding:0% 30% !important;
+    }
+}

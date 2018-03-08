@@ -1,0 +1,48 @@
+h2{
+    color:darkred;
+    font-size: 15px;
+}
+legend{
+    font-size: 15px;
+    color: #303030;
+}
+label{
+    font-size: 15px;
+}
+.form-group{
+    border-bottom: dotted 3px;
+    border-color: rgba(0,0,0,0.1);
+    color: #303030;
+    padding: 20px 0 30px 0;
+}
+.dropdown label{
+    font-size: 12px !important;
+}
+.botaoAmarelo{
+    color:white;
+    font-weight: bold;
+    background-color:#febc10;
+    border-color: #febc10;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 2px;
+    padding: 13px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;  
+}
+.botaoCinza{
+    color:#707070;
+    border-color: #707070; 
+    font-weight: bold;
+    background-color:white;
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 13px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;  
+}

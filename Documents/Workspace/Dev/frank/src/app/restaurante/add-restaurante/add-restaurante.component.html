@@ -1,0 +1,22 @@
+<div>
+  <h3>
+    Cadastro de Restaurantes
+  </h3>
+</div>
+
+<form class="form-horizontal" [formGroup]="formulario">
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="name" class="control-label">Nome</label>
+    </div>
+
+    <div class="col-sm-12">
+      <input type="text" class="form-control" formControlName="name" id="name" placeholder="Nome">
+    </div>
+  </div>
+
+    <button routerLink=".." class="btn btn-danger">Cancelar</button>
+    <button routerLink=".." type="button" (click)="onSubmit()" class="btn btn-success">Salvar</button>
+ 
+  <app-form-debug [form]="formulario"></app-form-debug>
+</form>

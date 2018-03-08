@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="modal-body">
+      <div class="text-right">
+          <button mat-button mat-dialog-close class="closebutton">X</button>
+      </div>
+      <br>
+    <p style="text-align:center" style="font-size:200%;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 
+    1550s, when an unknown printer took a gallery of type and serambled it to make a type.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" [(ngModel)]="marcado">
+    <label class="form-check-label" for="agree" style="font-size:100%;">Li e aceito os termos e condições acima</label>
+  </div>
+</div>
+<br>
+<div>
+  <button class="btn btn-primary" [disabled]="buttonState()" routerLink="/questionario"
+    (click)="onNoClick()">Ok, entendi!</button>
+</div>
+
+
+          <!--hr>
+
+<pre>{{closeResult}}</pre-->
+
+ 

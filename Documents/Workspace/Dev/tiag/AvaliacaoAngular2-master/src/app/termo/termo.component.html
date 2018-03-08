@@ -1,0 +1,19 @@
+
+<div class="message">
+  <div class="text-right">
+    <button mat-button mat-dialog-close class="closebutton">X</button>
+  </div>
+  <h2 class="text-center ">TERMO</h2>
+  
+  <p style="color: gray;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  
+  <hr style="border-top: dotted 3px;color:lightgray"/>
+
+  <div class="checkbox text-center">
+    <label>
+      <input type="checkbox" name="AceitaTermos" ngModel #aceitaTermos="ngModel">
+      Li e aceito os termos e condições acima
+    </label>
+    <a routerLink="/sucesso"><button mat-buttom mat-dialog-close class="botao" [disabled]="!aceitaTermos.value" [style.backgroundColor]= "aceitaTermos.value? '#febc10' :'#fedb7e' ">OK, ENTENDI</button></a>
+  </div>
+</div>

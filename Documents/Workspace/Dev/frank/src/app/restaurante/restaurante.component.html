@@ -1,0 +1,34 @@
+<div>
+  <h2>
+    Restaurantes
+  </h2>
+</div>
+<form>
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" [(ngModel)]="restaurante" [ngModelOptions]="{standalone: true}" class="form-control">
+  </div>
+    <button class="btn btn-primary">Pesquisar</button>
+    <button class="btn btn-success" routerLink="add-restaurante">Cadastrar novo Restaurante</button><br><br>
+</form>
+
+<table class="table table-hover">
+  <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Remove</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Name</th>
+          <th scope="col">Pratos</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let item of data">
+          <th>{{ data.indexOf(item) + 1 }}</th>
+          <th><button (click)="onClickRemove(item.id)" type="button" class="btn btn-default">Remove</button></th>
+          <th><button type="button" class="btn btn-default">Edit</button></th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.pratos }}</td>
+      </tr>
+  </tbody>
+</table> 

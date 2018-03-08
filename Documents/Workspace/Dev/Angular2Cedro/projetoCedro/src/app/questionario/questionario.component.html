@@ -1,0 +1,21 @@
+<div class="alert alert-info" style="text-align:center">
+    <strong>{{ titulo }}</strong>
+</div>
+<div class="col-sm-5 form-group">
+        <label for="TituloDeRendaETesouro">TÍTULOS DE RENDA FIXA OU TESOURO DIRETO</label>
+        <select ngModel name="TituloDeRendaETesouro" id="TituloDeRendaETesouro" class="form-control">
+          <option value="">Selecione uma opção</option>
+          <option [value]="opcao.opcao" *ngFor="let opcao of DropDownQuestions">{{opcao.opcao}}</option>
+        </select>
+</div>
+<!--div class="row">
+    <font size="6">{{ pergunta1[0] }}</font>
+        <mat-radio-group [(ngModel)]="this.resposta1">
+            <mat-radio-button value="{{ pergunta[1] }}">{{ pergunta[1] }}</mat-radio-button>
+            <mat-radio-button value="{{ pergunta[2] }}">{{ pergunta[2] }}</mat-radio-button>
+            <mat-radio-button value="{{ pergunta[3] }}">{{ pergunta[3] }}</mat-radio-button>
+        </mat-radio-group>
+</div-->
+<div>
+    <button type="submit" class="btn btn-lg btn-primary" routerLink="/final">Submit</button>
+</div>
